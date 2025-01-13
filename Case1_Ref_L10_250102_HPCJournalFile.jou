@@ -1,0 +1,21 @@
+; Student ID 464438_Aniruddha Wadekar MSC CFD Turbulence modelling
+;Ref Case 1 Mesh level 10
+
+;Load the case file
+/rc 250102_Case1Ref_Level_10_fluent_scaled_SA_lowRe_baseline.cas.h5
+
+; Initialize
+/solve/init/hyb-init
+
+;Number of Iterations
+/solve/iter 5000
+
+;Save data
+/wc 250102_Case1Ref_Level_10_fluent_scaled_SA_lowRe_baseline.cas.h5
+yes
+/wd 250102_Case1Ref_Level_10_fluent_scaled_SA_lowRe_baseline.dat.h5
+yes
+
+;Exit Fluent
+/exit ok
+yes
