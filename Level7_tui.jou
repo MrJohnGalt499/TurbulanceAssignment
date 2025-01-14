@@ -1,0 +1,96 @@
+;============================================================================
+; TUI Journal for Fluent
+;============================================================================
+
+;read the generated mesh
+
+/file/read-case Level_7_fluent.cas q
+
+
+; Example if you originally created the mesh in inches and want to scale to meters:
+/mesh/scale
+  0.0254
+  0.0254
+  0.0254
+
+
+/define/models/viscous/kw-sst yes
+/define/models/viscous/corner-flow-correction yes q
+  
+
+/define/materials
+  change-create
+  air    
+    
+  yes          
+  constant     
+  1.0650
+  no
+  no
+  yes
+  constant     
+  1.8371e-05
+  no
+  no
+  no
+
+
+/define/boundary-conditions/modify-zone
+  zone-type
+  6
+  velocity-inlet
+
+/define/boundary-conditions
+  velocity-inlet
+  6                   
+  no
+  no
+  yes   
+  yes  
+  no
+  7.4314
+  no
+  0
+  no
+  no
+  no
+  yes
+  0
+  5.4656
+  
+
+
+/define/boundary-conditions/modify-zone
+  zone-type
+  7
+  pressure-outlet
+
+
+; PROBLEM OCCUR HERE, TRY TO RUN THE ABOVE FILE THEN TYPE THE FOLLOWING CODE IN CONSOLE
+/define/boundary-conditions/set/pressure-outlet outlet () prevent-reverse-flow? yes q
+  
+
+/solve/set/p-v-coupling 24         
+/solve/set/discretization-scheme pressure 10
+/solve/set/discretization-scheme mom 0
+/solve/set/discretization-scheme k 0
+/solve/set/discretization-scheme omega 0
+/solve/set/pseudo-time-method/formulation 1 q q 
+
+
+/solve/initialize/compute-defaults
+  velocity-inlet
+  6
+  q
+ /solve/initialize/initialize-flow
+  
+
+
+/solve/iterate 500
+
+/file/write-case SST_CFC_Level_10.cas.h5
+/file/write-data SST_CFC_Level_10.dat
+
+
+/exit ok
+
