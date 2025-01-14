@@ -1,6 +1,6 @@
 # TurbulanceAssignment
 ## User Modifications
-### HPCJournalFile
+### HPCJournalFile (By Aniruddha)
 
 Change name
 Ensure correct name of the Ansys cas.h5 file is used - in 2 places one at the start and one after solve
@@ -10,7 +10,7 @@ ensure correct number of iterations are used
 ensure correct name od output dat.h5 file is used.
 
 -----------------------------------------------------------------
-### Level7_tui.jou
+### Level7_tui.jou (By Nicolas)
 
 Journal files for setup and runnning in HPC. 
 
@@ -22,7 +22,7 @@ Changes should be made with:
 
 -------------------------------------------------------------------
 
-### Fluent.sub
+### Fluent.sub (By Aniruddha)
 
 Job name
 
@@ -33,6 +33,11 @@ Number of processors- very important read instructions provided
 Name of the journal file to access.
 
 ------------------------------------------------------------------
+### test_auto_script.mlx (By Jawad)
+
+Matlab file for changing data into tempate form.
+
+-------------------------------------------------------------------
 ### A few additional comments
 
 To run the simulation o the HPC via linux terminal use  - qsub fluent.sub
