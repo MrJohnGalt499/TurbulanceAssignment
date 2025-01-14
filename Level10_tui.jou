@@ -1,0 +1,103 @@
+;============================================================================
+; TUI Journal for Fluent
+;============================================================================
+
+/rc "C:\Users\tianyu.ma\OneDrive - Cranfield University\TurbulanceAss\Level10\Level_10.cas"
+
+
+; Example if you originally created the mesh in inches and want to scale to meters:
+/mesh/scale
+  0.0254
+  0.0254
+  0.0254
+
+
+/define/models/viscous
+  kw-sst?       
+  yes          
+  corner-flow-correction?
+  yes          
+  
+
+/define/materials
+  change-create
+  air    
+    
+  yes          
+  constant     
+  1.087458
+  no
+  no
+  yes
+  constant     
+  1.833642e-05
+  no
+  no
+  no
+
+
+/define/boundary-conditions/modify-zone
+  zone-type
+  6
+  velocity-inlet
+
+/define/boundary-conditions
+  velocity-inlet
+  6                   
+  no
+  no
+  yes   
+  yes  
+  no
+  5.3
+  no
+  0
+  no
+  no
+  no
+  yes
+  0
+  5.4
+  
+
+
+/define/boundary-conditions/modify-zone
+  zone-type
+  7
+  pressure-outlet
+
+
+; PROBLEM OCCUR HERE, TRY TO RUN THE ABOVE FILE THEN TYPE THE FOLLOWING CODE IN CONSOLE
+/define/boundary-conditions/set/pressure-outlet outlet () prevent-reverse-flow? yes quit 
+
+/define/boundary-conditions
+  pressure-outlet
+  7
+  no
+  93147
+  no
+  no
+  no
+
+
+/solve/set/p-v-coupling 24         
+/solve/set/discretization-scheme pressure 10
+/solve/set/discretization-scheme mom 0
+/solve/set/discretization-scheme k 0
+/solve/set/discretization-scheme omega 0
+
+
+/solve/initialize/     
+  compute-defaults
+  all-zone
+  q
+  initialize-flow
+
+
+/solve/iterate 20
+
+
+/wc "C:\Users\tianyu.ma\OneDrive - Cranfield University\TurbulanceAss\Level10\test1.cas.h5"
+
+/wd "C:\Users\tianyu.ma\OneDrive - Cranfield University\TurbulanceAss\Level10\test1.dat.h5"
+
