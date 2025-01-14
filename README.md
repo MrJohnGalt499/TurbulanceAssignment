@@ -10,6 +10,17 @@ ensure correct number of iterations are used
 ensure correct name od output dat.h5 file is used.
 
 -----------------------------------------------------------------
+### Level7_tui.jou
+
+Journal files for setup and runnning in HPC. 
+
+Changes should be made with: 
+
+1: File Name 
+
+2: Solver settings
+
+-------------------------------------------------------------------
 
 ### Fluent.sub
 
