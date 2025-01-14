@@ -1,12 +1,14 @@
 ## TurbulanceAssignment
 # User Modifications
 HPCJournalFile
+
 Change name
 Ensure correct name of the Ansys cas.h5 file is used - in 2 places one at the start and one after solve
 ensure correct number of iterations are used
 ensure correct name od output dat.h5 file is used.
 
 Fluent.sub
+
 Job name
 User email - very important
 Number of processors- very important read instructions provided
