@@ -1,6 +1,6 @@
-## TurbulanceAssignment
-# User Modifications
-HPCJournalFile
+# TurbulanceAssignment
+## User Modifications
+### HPCJournalFile
 
 Change name
 Ensure correct name of the Ansys cas.h5 file is used - in 2 places one at the start and one after solve
@@ -11,7 +11,7 @@ ensure correct name od output dat.h5 file is used.
 
 -----------------------------------------------------------------
 
-Fluent.sub
+### Fluent.sub
 
 Job name
 
@@ -22,7 +22,7 @@ Number of processors- very important read instructions provided
 Name of the journal file to access.
 
 ------------------------------------------------------------------
-A few additional comments
+### A few additional comments
 
 To run the simulation o the HPC via linux terminal use  - qsub fluent.sub
 
